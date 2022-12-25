@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::any('', function() {
-    return 1;
-});
+
+
+Route::middleware(['isInstalled'])->group(function () {
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+  });
 
